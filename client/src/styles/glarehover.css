@@ -1,0 +1,33 @@
+/* ═══════════════════════════════════════════
+   GlareHover — ReactBits adapted
+   CSS-only glare sweep on hover
+   ═══════════════════════════════════════════ */
+
+.glare-hover {
+  overflow: hidden;
+  position: relative;
+}
+
+.glare-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    hsla(0, 0%, 0%, 0) 40%,
+    var(--glare-color, rgba(255, 255, 255, 0.45)) 55%,
+    var(--glare-color, rgba(255, 255, 255, 0.45)) 60%,
+    hsla(0, 0%, 0%, 0) 75%,
+    hsla(0, 0%, 0%, 0) 100%
+  );
+  background-size: 350% 350%;
+  background-repeat: no-repeat;
+  background-position: -100% -100%;
+  transition: background-position 1000ms ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.glare-hover:hover::before {
+  background-position: 100% 100%;
+}

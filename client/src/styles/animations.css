@@ -1,0 +1,98 @@
+@keyframes featured-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes aurora-wave {
+  0% {
+    transform: translate3d(-2%, 0, 0) scale(1);
+    opacity: 0.38;
+  }
+
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.04);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: translate3d(-2%, 0, 0) scale(1);
+    opacity: 0.38;
+  }
+}
+
+@keyframes grain-float {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-3%, 3%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes beam-sweep {
+  0% {
+    transform: translateX(-35%) skewX(-8deg);
+  }
+
+  100% {
+    transform: translateX(35%) skewX(-8deg);
+  }
+}
+
+@keyframes glitch-shift {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  30% {
+    clip-path: inset(12% 0 58% 0);
+  }
+
+  60% {
+    clip-path: inset(56% 0 14% 0);
+  }
+}
+
+@keyframes light-ray-pulse {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+
+  50% {
+    opacity: 0.34;
+  }
+}
+
+@keyframes light-ray-drift {
+  0%,
+  100% {
+    transform: rotate(var(--ray-angle)) translateX(0);
+  }
+
+  50% {
+    transform: rotate(calc(var(--ray-angle) + 1.5deg)) translateX(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

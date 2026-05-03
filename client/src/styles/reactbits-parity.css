@@ -1,0 +1,182 @@
+/* ReactBits parity layer with project-specific theme styling */
+
+.scroll-float-zone {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.scroll-float-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.scroll-float-row {
+  border: 1px solid rgba(140, 167, 205, 0.25);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.scroll-float-text {
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  font-family: 'Space Grotesk', 'Sora', sans-serif;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+}
+
+.scroll-float-row-text {
+  font-size: clamp(1.02rem, 2.2vw, 1.45rem);
+  line-height: 1.12;
+}
+
+.scroll-float-char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+  text-shadow: 0 0 14px rgba(106, 227, 255, 0.16);
+}
+
+.scroll-float-char.space {
+  width: 0.34em;
+}
+
+.flowing-menu-section {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.flowing-menu-section .eyebrow {
+  padding: 14px 16px 10px;
+}
+
+.rb-flowing-menu {
+  --rb-flow-text: #ffffff;
+  --rb-flow-bg: #060010;
+  --rb-flow-marquee-bg: #ffffff;
+  --rb-flow-marquee-text: #060010;
+  --rb-flow-border: #ffffff;
+
+  background: var(--rb-flow-bg);
+}
+
+.rb-flowing-menu-item {
+  position: relative;
+  display: block;
+  min-height: 84px;
+  border-top: 1px solid var(--rb-flow-border);
+  color: var(--rb-flow-text);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.rb-flowing-menu-item:first-child {
+  border-top: none;
+}
+
+.rb-flowing-menu-static-text {
+  display: grid;
+  place-items: center;
+  min-height: 84px;
+  padding: 12px 18px;
+  font-family: 'Space Grotesk', 'Sora', sans-serif;
+  font-size: clamp(1.02rem, 2.3vw, 1.36rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rb-flowing-menu-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--rb-flow-marquee-bg);
+  color: var(--rb-flow-marquee-text);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transform: translateY(100%);
+}
+
+.rb-flowing-menu-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.rb-flowing-menu-track-row {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rb-flowing-menu-chunk {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  font-size: clamp(0.92rem, 1.4vw, 1.04rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.rb-flowing-menu-chunk img {
+  width: 70px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 1px solid rgba(4, 19, 27, 0.28);
+}
+
+.rb-flowing-menu-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.rb-flowing-menu.reduced-motion .rb-flowing-menu-overlay {
+  transform: translateY(0);
+  position: relative;
+}
+
+.rb-flowing-menu.reduced-motion .rb-flowing-menu-static-text {
+  display: none;
+}
+
+.vehicle-light-rays,
+.detail-light-rays {
+  mix-blend-mode: screen;
+  opacity: 0.86;
+}
+
+.vehicle-light-rays.over-photo,
+.detail-light-rays.over-photo {
+  opacity: 0.64;
+}
+
+@media (max-width: 980px) {
+  .rb-flowing-menu-item {
+    min-height: 74px;
+  }
+
+  .rb-flowing-menu-static-text {
+    min-height: 74px;
+    font-size: 1rem;
+  }
+
+  .rb-flowing-menu-chunk {
+    padding: 0 14px;
+    font-size: 0.88rem;
+  }
+
+  .rb-flowing-menu-chunk img {
+    width: 56px;
+    height: 34px;
+  }
+}

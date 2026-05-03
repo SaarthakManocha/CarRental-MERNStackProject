@@ -1,0 +1,87 @@
+/* ═══════════════════════════════════════════
+   BorderGlow — Lightweight animated border
+   Uses a single rotating conic-gradient
+   ═══════════════════════════════════════════ */
+
+.border-glow-card {
+  --cursor-angle: 0deg;
+  --border-radius: 20px;
+
+  position: relative;
+  border-radius: var(--border-radius);
+  background: var(--card-bg, #030508);
+  overflow: visible;
+  isolation: isolate;
+}
+
+/* The rotating glow border — single pseudo-element, lightweight */
+.border-glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--cursor-angle),
+    transparent 0%,
+    var(--glow-a, rgba(56, 189, 248, 0.05)) 10%,
+    var(--glow-b, rgba(106, 227, 255, 0.6)) 20%,
+    var(--glow-c, rgba(14, 165, 233, 0.8)) 25%,
+    var(--glow-b, rgba(106, 227, 255, 0.6)) 30%,
+    var(--glow-a, rgba(56, 189, 248, 0.05)) 40%,
+    transparent 50%
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+  pointer-events: none;
+  will-change: background;
+  transition: opacity 0.3s ease;
+}
+
+/* Outer soft glow shadow */
+.border-glow-card::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: calc(var(--border-radius) + 8px);
+  background: conic-gradient(
+    from var(--cursor-angle),
+    transparent 0%,
+    var(--glow-a, rgba(56, 189, 248, 0)) 10%,
+    var(--glow-b, rgba(106, 227, 255, 0.15)) 20%,
+    var(--glow-c, rgba(14, 165, 233, 0.25)) 25%,
+    var(--glow-b, rgba(106, 227, 255, 0.15)) 30%,
+    var(--glow-a, rgba(56, 189, 248, 0)) 40%,
+    transparent 50%
+  );
+  filter: blur(12px);
+  z-index: -2;
+  pointer-events: none;
+  will-change: background;
+}
+
+/* When not active, hide */
+.border-glow-card:not(.always-glow):not(:hover)::before,
+.border-glow-card:not(.always-glow):not(:hover)::after {
+  opacity: 0;
+}
+
+/* Subtle static border when glow is off */
+.border-glow-card {
+  border: 1px solid rgba(106, 227, 255, 0.12);
+}
+
+.border-glow-card.always-glow {
+  border-color: transparent;
+}
+
+.border-glow-inner {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  z-index: 1;
+}

@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════
+   ReactBits Stepper — Dark theme parity
+   ═══════════════════════════════════════════ */
+
+.rb-stepper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.rb-stepper-card {
+  margin: 0;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 20px;
+  border: 1px solid rgba(106, 227, 255, 0.15);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(106, 227, 255, 0.05), transparent 60%),
+    rgba(8, 14, 26, 0.7);
+  box-shadow:
+    0 0 40px rgba(106, 227, 255, 0.04),
+    0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Indicator row ── */
+
+.rb-stepper-indicators {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 24px 28px;
+}
+
+/* ── Step content area ── */
+
+.rb-stepper-content-area {
+  position: relative;
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.rb-step-content {
+  padding: 0 28px;
+}
+
+.rb-step-content h4 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.rb-step-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* ── Footer ── */
+
+.rb-stepper-footer {
+  padding: 0 28px 24px;
+}
+
+.rb-stepper-nav {
+  margin-top: 24px;
+  display: flex;
+}
+
+.rb-stepper-nav.spread {
+  justify-content: space-between;
+}
+
+.rb-stepper-nav.end {
+  justify-content: flex-end;
+}
+
+.rb-stepper-complete {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  flex-wrap: wrap;
+}
+
+.rb-complete-icon {
+  width: 18px;
+  height: 18px;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.rb-stepper-complete span {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.rb-stepper-back {
+  transition: color 250ms ease;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.rb-stepper-back:hover {
+  color: var(--text-primary);
+}
+
+.rb-stepper-next {
+  transition: background 250ms ease, transform 150ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent-primary);
+  color: #020408;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: -0.015em;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.rb-stepper-next:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.rb-stepper-next:active {
+  transform: translateY(0);
+}
+
+/* ── Step indicator circles ── */
+
+.rb-step-indicator {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.rb-step-indicator-inner {
+  display: flex;
+  height: 2rem;
+  width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.rb-active-dot {
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.rb-step-num {
+  font-size: 0.82rem;
+  color: inherit;
+}
+
+/* ── Connector line ── */
+
+.rb-step-connector {
+  position: relative;
+  margin: 0 8px;
+  height: 2px;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(140, 167, 205, 0.15);
+}
+
+.rb-step-connector-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+/* ── Check icon ── */
+
+.rb-check-icon {
+  height: 1rem;
+  width: 1rem;
+  color: #fff;
+}
+
+/* ── responsive ── */
+
+@media (max-width: 640px) {
+  .rb-stepper-card {
+    max-width: 100%;
+  }
+
+  .rb-stepper-indicators {
+    padding: 18px 20px;
+  }
+
+  .rb-step-content {
+    padding: 0 20px;
+  }
+
+  .rb-stepper-footer {
+    padding: 0 20px 20px;
+  }
+}
